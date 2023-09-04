@@ -137,6 +137,9 @@ terraform plan
 terraform apply --auto-approve
 คำสั่ง destroy จะใช้เมื่อเราต้องการลบทุกอย่างทิ้ง และถ้าจะสร้างใหม่ต้องรัน plan และ apply เพื่อสร้างใหม่
 terraform destroy --auto-approve
+
+ดูชื่อ image az vm image list --location southeastasia --all --publisher="Canonical" --sku="20_04-lts-gen2"
+
 *************************************************
 */
 }
