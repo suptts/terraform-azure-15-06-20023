@@ -82,18 +82,21 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
+    version   = "20.04.202308310"
   }
-  /*
+
+/*
 storage_image_reference {
-publisher = "openLogic"
-offer = "CentOS"
-sku = "7_7-gen2"
-version = "latest"
+  publisher = "openLogic"
+  offer = "CentOS"
+  sku = "7_7-gen2"
+  version = "latest"
 }
 */
+
+
   storage_os_disk {
     name              = "flutter"
     disk_size_gb      = "128"
@@ -138,7 +141,7 @@ terraform apply --auto-approve
 คำสั่ง destroy จะใช้เมื่อเราต้องการลบทุกอย่างทิ้ง และถ้าจะสร้างใหม่ต้องรัน plan และ apply เพื่อสร้างใหม่
 terraform destroy --auto-approve
 
-ดูชื่อ image az vm image list --location southeastasia --all --publisher="Canonical" --sku="20_04-lts-gen2"
+ดูชื่อ az vm image list --location southeastasia --all --publisher="Canonical" --sku="20_04-lts-gen2"
 
 *************************************************
 */
