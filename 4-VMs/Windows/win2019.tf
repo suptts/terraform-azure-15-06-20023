@@ -127,12 +127,6 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     version   = "latest"
   }
   
-storage_image_reference {
-publisher = "openLogic"
-offer = "CentOS"
-sku = "7_7-gen2"
-version = "latest"
-}
 */
   storage_os_disk {
     name              = "winsuptts"
