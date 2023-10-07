@@ -93,6 +93,13 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     version   = "latest"
   }
 
+  source_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-10"
+    sku       = "20h2-evd"
+    version   = "latest"
+  }
+
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
