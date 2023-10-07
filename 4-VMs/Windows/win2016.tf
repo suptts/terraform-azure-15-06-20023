@@ -92,8 +92,19 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
-
   source_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "windows-11"
+    sku       = "win11-21h2-avd"
+    version   = "latest"
+  }
+  storage_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-10"
+    sku       = "RS5-Pro"
+    version   = "latest"
+  }
+  storage_image_reference {
     publisher = "MicrosoftWindowsDesktop"
     offer     = "Windows-10"
     sku       = "20h2-evd"
