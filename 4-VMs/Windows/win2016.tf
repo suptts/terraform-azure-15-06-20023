@@ -85,6 +85,14 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   }
 
   /*
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
+    version   = "20.04.202308310"
+  }
+
   storage_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
