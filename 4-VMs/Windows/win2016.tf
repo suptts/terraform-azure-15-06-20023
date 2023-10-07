@@ -78,13 +78,19 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   delete_data_disks_on_termination = true # We don't have to worry about costs
 
   storage_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-10"
+    sku       = "RS5-Pro"
+    version   = "latest"
+  }
+
+  /*
+  storage_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
     sku       = "2019-Datacenter"
     version   = "latest"
   }
-
-  /*
 
   storage_image_reference {
     publisher = "MicrosoftWindowsServer"
