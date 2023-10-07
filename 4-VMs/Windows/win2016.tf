@@ -80,11 +80,19 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   storage_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2016-Datacenter"
+    sku       = "2019-Datacenter"
     version   = "latest"
   }
 
   /*
+
+  storage_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
+    version   = "latest"
+  }
+
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
