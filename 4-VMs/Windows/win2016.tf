@@ -79,8 +79,8 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
 
   storage_image_reference {
     publisher = "MicrosoftWindowsDesktop"
-    offer     = "Windows-10"
-    sku       = "win10-22h2-pro-g2"
+    offer     = "windows-10"
+    sku       = "win10-21h2-avd"
     version   = "latest"
   }
 
@@ -107,8 +107,8 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
 
   storage_image_reference {
     publisher = "MicrosoftWindowsDesktop"
-    offer     = "Windows-10"
-    sku       = "20h2-evd"
+    offer     = "windows-10"
+    sku       = "win10-21h2-avd"
     version   = "latest"
   }
 
