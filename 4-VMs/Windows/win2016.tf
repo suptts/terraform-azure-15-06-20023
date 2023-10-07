@@ -80,7 +80,7 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   storage_image_reference {
     publisher = "MicrosoftWindowsDesktop"
     offer     = "Windows-10"
-    sku       = "RS5-Pro"
+    sku       = "win10-22h2-pro-g2"
     version   = "latest"
   }
 
@@ -104,12 +104,7 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     sku       = "win11-21h2-avd"
     version   = "latest"
   }
-  storage_image_reference {
-    publisher = "MicrosoftWindowsDesktop"
-    offer     = "Windows-10"
-    sku       = "RS5-Pro"
-    version   = "latest"
-  }
+
   storage_image_reference {
     publisher = "MicrosoftWindowsDesktop"
     offer     = "Windows-10"
@@ -174,6 +169,11 @@ terraform plan
 terraform apply --auto-approve
 คำสั่ง destroy จะใช้เมื่อเราต้องการลบทุกอย่างทิ้ง และถ้าจะสร้างใหม่ต้องรัน plan และ apply เพื่อสร้างใหม่
 terraform destroy --auto-approve
+
+ดูชื่อ az vm image list --location southeastasia --all --publisher="Canonical" --sku="20_04-lts-gen2"
+ดูชื่อ az vm image list --location southeastasia --all --publisher="MicrosoftWindowsDesktop" --sku="win10-22h2-pro-g2"
+
+
 *************************************************
 */
 }
