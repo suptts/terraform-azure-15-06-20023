@@ -80,7 +80,7 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   delete_data_disks_on_termination = true # We don't have to worry about costs
 
 
-  source_image_reference {
+  storage_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts-gen2"
