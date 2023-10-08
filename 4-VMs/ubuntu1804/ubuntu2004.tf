@@ -104,6 +104,41 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     version   = "20.04.202308310"
   }
 
+storage_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2019-Datacenter"
+    version   = "latest"
+  }
+
+  storage_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
+    version   = "latest"
+  }
+  source_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "windows-11"
+    sku       = "win11-21h2-avd"
+    version   = "latest"
+  }
+
+  storage_image_reference {
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "windows-10"
+    sku       = "win10-21h2-avd"
+    version   = "latest"
+  }
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
+    version   = "latest"
+  }
+  
+
 */
 
 
