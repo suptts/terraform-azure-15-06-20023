@@ -83,18 +83,29 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
   storage_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
+    sku       = "22_04-lts-gen2"
+    version   = "22.04.202310040"
+  }
+
+/*
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "22_04-lts-gen2"
+    version   = "22.04.202310040"
+  }
+
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
     sku       = "20_04-lts-gen2"
     version   = "20.04.202308310"
   }
 
-/*
-storage_image_reference {
-  publisher = "openLogic"
-  offer = "CentOS"
-  sku = "7_7-gen2"
-  version = "latest"
-}
 */
+
 
 
   storage_os_disk {
