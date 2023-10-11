@@ -2,7 +2,6 @@
 # Last Modified: 11 October 2023
 # Configure the Azure Provider and install.sh to install Docker
 
-
 terraform {
   required_providers {
     azurerm = {
@@ -11,11 +10,8 @@ terraform {
     }
   }
 
-
   required_version = ">= 1.1.0"
 }
-
-
 
 provider "azurerm" {
   features {}
@@ -96,7 +92,6 @@ resource "azurerm_virtual_machine" "ExistingNetworkRG" {
     version   = "22.04.202310040"
   }
 
-
   storage_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
@@ -138,10 +133,7 @@ storage_image_reference {
     version   = "latest"
   }
   
-
 */
-
-
 
   storage_os_disk {
     name              = "supdevopstts"
@@ -167,13 +159,12 @@ storage_image_reference {
     TFStateFile  = "Local on Suparuek Mac"
   }
 
-
-/*
-boot_diagnostics {
-enabled = "true"
-storage_uri = azurerm_storage_account.sa.primary_blob_endpoint
-}
-*/
+  /*
+  boot_diagnostics {
+  enabled = "true"
+  storage_uri = azurerm_storage_account.sa.primary_blob_endpoint
+  }
+  */
 
 }
 
@@ -199,7 +190,6 @@ resource "null_resource" "chrony" {
     ]
   }
 }
-
 
 
 /*
