@@ -168,13 +168,41 @@ storage_image_reference {
   }
 
 
-  /*
+/*
 boot_diagnostics {
 enabled = "true"
 storage_uri = azurerm_storage_account.sa.primary_blob_endpoint
 }
 */
-  /*
+
+}
+
+data "azurerm_virtual_machine" "ExistingNetworkRG" {
+  name                = "${azurerm_virtual_machine.ExistingNetworkRG.name}"
+  resource_group_name = "${azurerm_virtual_machine.ExistingNetworkRG.resource_group_name}"
+}
+
+resource "null_resource" "chrony" {
+  connection {
+    type = "ssh"
+    user = "suparuek"
+    password = "Password12345!"
+    host = "${data.azurerm_virtual_machine.ExistingNetworkRG.public_ip_address}"
+  }
+  provisioner "file" {
+    source = "/home/suparuek/terraform-azure-15-06-20023/4-VMs/ubuntu2204/install.sh"
+    destination = "/tmp/install.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo sh /tmp/install.sh",
+    ]
+  }
+}
+
+
+
+/*
 *************************************************
 คำสั่งที่ใช้กับ terraform
 *************************************************
@@ -191,35 +219,4 @@ terraform destroy --auto-approve
 
 *************************************************
 */
-}
 
-
-data "azurerm_virtual_machine" "ExistingNetworkRG" {
-  name                = "${azurerm_virtual_machine.ExistingNetworkRG.name}"
-  resource_group_name = "${azurerm_virtual_machine.ExistingNetworkRG.resource_group_name}"
-}
-
-
-resource "null_resource" "chrony" {
-  connection {
-    type = "ssh"
-    user = "suparuek"
-    password = "Password12345!"
-    host = "${data.azurerm_virtual_machine.ExistingNetworkRG.public_ip_address}"
-  }
-  provisioner "file" {
-    source = "/home/suparuek/terraform-azure-15-06-20023/4-VMs/ubuntu2204/install.sh"
-    destination = "/tmp/install.sh"
-  }
-  provisioner "remote-exec" {
-    #connection {
-    #  type = "ssh"
-    #  user = "suparuek"
-    #  password = "Password12345!"
-    #  host = "${data.azurerm_virtual_machine.ExistingNetworkRG.public_ip_address}"
-    #}
-    inline = [
-      "sudo sh /tmp/install.sh",
-    ]
-  }
-}
