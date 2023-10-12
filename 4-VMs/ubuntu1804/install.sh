@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-sudo apt install chrony curl docker-ce docker-ce-cli containerd.io -y
+sudo apt install net-tools chrony curl docker-ce docker-ce-cli containerd.io -y
 sudo systemctl start docker
 sudo systemctl enable docker 
 sudo systemctl status docker
